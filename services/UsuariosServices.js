@@ -1,74 +1,167 @@
 const data = require("../databases/usuarios.json");
 const fs = require("fs");
-function listar() {
-  const dataFormat = data.map((pessoa) => {
-    return {
-      id: pessoa.id,
-      name: pessoa.nome,
-      email: pessoa.email,
-    };
-  });
-  console.table(dataFormat);
+
+
+function getUsers() {
+  return data.map((user)=>{
+    return user;
+  })
 }
-function listarNomes() {
+const filterUser= (user) => {
+  const filteredUser = {
+    id : user.id,
+    nome:user.nome,
+    email:user.email
+  }
+  return filteredUser;
+}
+const listar = () => {
+  const userArray = getUsers();
+  const filteredUsers = userArray.map(filterUser);
+  console.table(filteredUsers);
+  
+  
+
+  // const dataFormat = data.map((user) => {
+  //   return {
+  //     id: user.id,
+  //     name: user.nome,
+  //     email: user.email,
+  //   };
+  // });
+  // console.table(dataFormat);
+}
+// listar();
+const listarNomes = ()=> {
   console.table(data.map((usuario) => usuario.nome));
 }
-listarNomes();
+// listarNomes();
 // listar();
-function salvar(arrayDeUsuarios) {
+const salvar = (arrayDeUsuarios) => {
   let users = data;
   users.push(JSON.stringify(arrayDeUsuarios));
   fs.writeFileSync("databases/usuarios.json", JSON.stringify(users, null, 4));
 }
-
-function cadastrar(objeto) {
+// function buscar(trecho) {
+//   let temTrechoNoNome = usuario => {
+//     return usuario.nome.includes(trecho);
+//   };
+//   let usuariosComNomesBuscados = data.filter(temTrechoNoNome);
+//   return usuariosComNomesBuscados;
+// }
+// buscar("ale");
+const cadastrar= (user)=> {
   let usuario = {
-    nome: objeto.nome,
-    email: objeto.email,
-    senha: objeto.senha,
-    endereco: objeto.endereco,
-    formasDePagamento: objeto.formasDePagamento,
-  };
-  const usuarios = fs.readFileSync("databases/usuarios.json");
+    id:id(),
+    nome: user.nome,
+    email: user.email,
+    senha: user.senha,
+    endereco: user.endereco,
+    formasDePagamento: user.formasDePagamento,
+
+  }; 
+  // console.log(usuario)
   data.push(usuario);
-  const esc = fs.writeFileSync("databases/usuarios.json");
-  console.log(esc);
+  console.log(data)
+  fs.writeFileSync("databases/usuarios.json", JSON.stringify(data,null,4));
 }
-// let user = {
-//   nome: "asd",
-//   email: "asd",
-//   senha: "asd",
-//   endereco: "asd",
-//   formasDePagamento: [],
-// };
+const id = ()=>{
+  // console.log("log",data[data.length - 1] )
+  // console.log("data",data[data.length-1]);
+  const newId = data[data.length-1].id+1;
+  return newId;
+}
+id();
+
+let user = {
+  nome: "jose",
+  email: "asd",
+  senha: "asd",
+  endereco: "asd",
+  formasDePagamento: [],
+};
 // cadastrar(user);
-function detalhar(idUsuario) {
-  const userId = data.find((user) => {
+const detalhar = (idUsuario) => {
+  const userId = data.find(user => {
     return user.id === idUsuario;
   });
   console.log(`nome : ${userId.nome} email : ${userId.email}`);
 }
 // detalhar(5);
-function remover(idDoUsuarioParaRemover) {
-  const userId = data.find((user) => {
-    return user.id === idUsuario;
-  });
-}
+const remover = (idUser) => {
+  const users = getUsers();
+  const userToRemove=users.filter((user)=>{
+    return user.id!== idUser;
+  })
+  fs.writeFileSync("databases/usuarios.json", JSON.stringify(userToRemove,null,4));
+  console.log(userToRemove);
+  //puxar o json // 
 
+}
+// remover(4)
 function alterar(novosDados, idUsuario) {
-  // Seu código aqui
+     const users = getUsers();
+    let user = findUser(idUsuario);
+    
+    const index = users.indexOf(user)
+    users[index].nome = novosDados.nome,
+    users[index].email = novosDados.email,
+    users[index].senha = novosDados.senha
+
+
+    
+    fs.writeFileSync("databases/usuarios.json", JSON.stringify(users, null,4));
+
+}
+let newUser = {
+  nome : "sergio",
+  email:"segioemail@gamil.com",
+  senha:"asdasdasd"
+}
+// alterar(newUser,128);
+function findUser(id){
+
+  const users = getUsers();
+  const user = users.find((user) => {
+    
+    return user.id === id;
+  })
+  return user;
 }
 
-function addEndereco(novoEndereco, idUsuario) {
-  // Seu código aqui
+function addEndereco(endereco,idUsuario) {
+  const user = findUser(idUsuario);
+  const users = getUsers();
+
+  const index = users.indexOf(user);
+
+  users[index].enderecos.push(endereco);
+  
+  fs.writeFileSync("databases/usuarios.json", JSON.stringify(users, null,4))
 }
+// addEndereco("rua das samambaias",128)
+
+
+
+
+
+
 
 function removerEndereco(posicaoDoEndereco, idUsuario) {
-  // Seu código aqui
+  const users = getUsers();
+  const user = findUser(idUsuario)
+  // console.log(user,"user");
+
+    // const index = users.indexOf(user);
+  user.enderecos.splice(posicaoDoEndereco,1)
+  console.log(user);
+  fs.writeFileSync("databases/usuarios.json", JSON.stringify(users,null,4))
 }
 
+// console.log(removerEndereco(1,128))
+
 function alterarEndereco(posicaoDoEndereco, novoEndereco, idUsuario) {
-  // Seu código aqui
+  
 }
 
 function addFormaDePagamento(novaFormaDePagamento, idUsuario) {
