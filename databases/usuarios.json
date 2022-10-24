@@ -1,0 +1,76 @@
+[
+    {
+        "id": 5,
+        "nome": "Alexandre de Moraes",
+        "email": "xandao@stf.org",
+        "senha": "$2b$10$RC4XOgG8CZt9CIekMEsvBekmrxWN15/DIaDLHjotYa5zVnYDSmSvW",
+        "enderecos": [
+            "Algum lugar em Brasília"
+        ],
+        "formasDePagamento": []
+    },
+    {
+        "id": 123,
+        "nome": "Raul das Flores",
+        "email": "raul@dasflores.com",
+        "senha": "$2b$10$GNgYOfJ20Uit0vYaaaFp5OVtXOPEQu4EDOj06O1VHH781TWru4Alu",
+        "enderecos": [
+            "Rua das Camélias, 99"
+        ],
+        "formasDePagamento": [
+            "CREDITO",
+            "1234 1234 1234 1236"
+        ]
+    },
+    {
+        "id": 125,
+        "nome": "Teste Testando",
+        "email": "teste@teste.com",
+        "senha": "$2b$10$Y3CoNFiuuYcMuk/j15GEe.ZRoe0ow.KHvEhaGuUgfZnAEQfJ5HC7u",
+        "enderecos": [
+            "Rua das Hortências, 44"
+        ],
+        "formasDePagamento": []
+    },
+    {
+        "id": 126,
+        "nome": "Raul da silva Santana",
+        "email": "adsasdasd",
+        "senha": "$2b$10$IcY6az6l4g2nCZh4ae8rF.09.X.rcVcAJdCLAAYJFMxT9.dDzT66K",
+        "enderecos": [
+            "asdasdasd"
+        ],
+        "formasDePagamento": []
+    },
+    {
+        "id": 127,
+        "nome": "asdasd",
+        "email": "asdasd",
+        "senha": "$2b$10$VxGf08TpOCKdVuPdJ./.tebp/.fMDwkMM9.wJbMg3H0CfjFxjyAg2",
+        "enderecos": [
+            "asdadsasd"
+        ],
+        "formasDePagamento": []
+    },
+    {
+        "id": 128,
+        "nome": "sergio",
+        "email": "segioemail@gamil.com",
+        "senha": "asdasdasd",
+        "enderecos": [
+            "tttt",
+            "alouras"
+        ],
+        "formasDePagamento": []
+    },
+    {
+        "id": 129,
+        "nome": "mika",
+        "email": "novoemail@gamil.com",
+        "senha": "asdasdasd",
+        "enderecos": [
+            "asdasdasd"
+        ],
+        "formasDePagamento": []
+    }
+]
