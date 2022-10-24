@@ -161,16 +161,32 @@ function removerEndereco(posicaoDoEndereco, idUsuario) {
 // console.log(removerEndereco(1,128))
 
 function alterarEndereco(posicaoDoEndereco, novoEndereco, idUsuario) {
-  
+    const user = findUser(idUsuario);
+    const users = getUsers();
+    user.enderecos[posicaoDoEndereco] = novoEndereco;
+    fs.writeFileSync("databases/usuarios.json", JSON.stringify(users,null,4))
+
 }
+// alterarEndereco(1,"alouras",128);
 
 function addFormaDePagamento(novaFormaDePagamento, idUsuario) {
   // Seu código aqui
+  const user = findUser(idUsuario);
+  const users = getUsers();
+  user.formasDePagamento.push(novaFormaDePagamento);
+  fs.writeFileSync("databases/usuarios.json", JSON.stringify(users,null,4))
 }
+// addFormaDePagamento("a vista",128);
 
 function removerFormaDePagamento(posicaoDaFormaDePagamento, idUsuario) {
   // Seu código aqui
+
+  user.formasDePagamento.splice(posicaoDaFormaDePagamento,1);
+  console.log(user.formasDePagamento.splice(posicaoDaFormaDePagamento,1));
+  fs.writeFileSync("databases/usuarios.json", JSON.stringify(users,null,4))
+  
 }
+// removerFormaDePagamento(0,128);
 
 function alterarFormaDePagamento(
   novaFormaDePagamento,
@@ -178,8 +194,13 @@ function alterarFormaDePagamento(
   idUsuario
 ) {
   // Seu código aqui
-}
+  const user = findUser(idUsuario);
+  const users = getUsers();
 
+  user.formasDePagamento[posicaoDaFormaDePagamento] = novaFormaDePagamento;
+  fs.writeFileSync("databases/usuarios.json", JSON.stringify(users,null,4))
+}
+// alterarFormaDePagamento("CREDITO",0,123);
 const UsuariosServices = {
   cadastrar,
   listar,
