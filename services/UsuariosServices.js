@@ -50,9 +50,15 @@ const salvar = (arrayDeUsuarios) => {
 //   return usuariosComNomesBuscados;
 // }
 // buscar("ale");
+const id = ()=>{
+  // console.log("log",data[data.length - 1] )
+  // console.log("data",data[data.length-1]);
+  const newId = data[data.length-1].id+1;
+  return newId;
+}
 const cadastrar= (user)=> {
   let usuario = {
-    id:id(),
+    id: id(),
     nome: user.nome,
     email: user.email,
     senha: user.senha,
@@ -65,13 +71,14 @@ const cadastrar= (user)=> {
   console.log(data)
   fs.writeFileSync("databases/usuarios.json", JSON.stringify(data,null,4));
 }
-const id = ()=>{
-  // console.log("log",data[data.length - 1] )
-  // console.log("data",data[data.length-1]);
-  const newId = data[data.length-1].id+1;
-  return newId;
-}
-id();
+cadastrar({
+  nome: "igor",
+  email: 'asdasd',
+  senha: 'asda'
+
+})
+
+
 
 let user = {
   nome: "jose",
