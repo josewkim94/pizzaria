@@ -69,7 +69,7 @@
         "email": "novoemail@gamil.com",
         "senha": "asdasdasd",
         "enderecos": [
-            "asdasdasd"
+            "rua nao sei"
         ],
         "formasDePagamento": []
     },
@@ -78,5 +78,64 @@
         "nome": "igor",
         "email": "asdasd",
         "senha": "asda"
+    },
+    {
+        "id": 131,
+        "nome": "igor",
+        "email": "asdasd",
+        "senha": "123",
+        "formasDePagamento": [
+            "avista",
+            "credito"
+        ]
+    },
+    {
+        "id": 132,
+        "nome": "igor",
+        "email": "asdasd",
+        "senha": "123",
+        "formasDePagamento": [
+            "avista",
+            "credito"
+        ]
+    },
+    {
+        "id": 133,
+        "nome": "igor",
+        "email": "asdasd",
+        "senha": "123",
+        "endereco": [
+            "rua sei la"
+        ],
+        "formasDePagamento": [
+            "avista",
+            "credito"
+        ]
+    },
+    {
+        "id": 134,
+        "nome": "igor",
+        "email": "asdasd",
+        "senha": "123",
+        "endereco": [
+            "rua sei la",
+            "avenida sei la"
+        ],
+        "formasDePagamento": [
+            "avista",
+            "credito"
+        ]
+    },
+    {
+        "id": 135,
+        "nome": "rodrigo",
+        "email": "rodrigaoo@gmail.com",
+        "senha": "123123"
+    },
+    {
+        "id": 136,
+        "nome": "joao",
+        "email": "jaooo@gmail.com",
+        "senha": "123123"
     }
 ]

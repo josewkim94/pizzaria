@@ -54,7 +54,7 @@ const tratarRespostas = {
             break;
 
             case opcoes.usuarios.alterarEndereco:
-                UsuariosServices.alteraEndereco(respostas.posEndereco, respostas.endereco, respostas.idUsuario);
+                UsuariosServices.alterarEndereco(respostas.posEndereco, respostas.endereco, respostas.idUsuario);
                 console.clear();
                 box(`Endereço alterado!`);
             break;
