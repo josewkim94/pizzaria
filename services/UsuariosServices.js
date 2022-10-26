@@ -1,5 +1,6 @@
 const data = require("../databases/usuarios.json");
 const fs = require("fs");
+const bcrypt = require('bcrypt');
 
 
 function getUsers() {
@@ -35,6 +36,7 @@ const listar = () => {
   const userArray = getUsers();
   const filteredUsers = userArray.map(filterUser);
   console.table(filteredUsers);
+// console.log(bcrypt.hashSync("123",5))
 
 }
 // listar();
@@ -50,12 +52,14 @@ const salvar = (arrayDeUsuarios) => {
 
 
 const cadastrar= (user)=> {
+  let hash = bcrypt.hashSync(user.senha,5)
   let usuario = {
     id: id(),
     nome: user.nome,
     email: user.email,
-    senha: user.senha,
+    senha: hash,
     enderecos: user.enderecos,
+    
     formasDePagamento: user.formasDePagamento,
 
   }; 

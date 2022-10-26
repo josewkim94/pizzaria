@@ -137,5 +137,23 @@
         "nome": "joao",
         "email": "jaooo@gmail.com",
         "senha": "123123"
+    },
+    {
+        "id": 137,
+        "nome": "joao",
+        "email": "ja23@gmail.com",
+        "senha": {}
+    },
+    {
+        "id": 138,
+        "nome": "gloria",
+        "email": "maria@gmail.com",
+        "senha": {}
+    },
+    {
+        "id": 139,
+        "nome": "daniel",
+        "email": "dani@gmail.com",
+        "senha": "$2b$05$wXpnCAuBaxu2YrszYDq9P.L0ttiBcGJcUVIQmIl6mIMn8f9cKACnq"
     }
 ]
